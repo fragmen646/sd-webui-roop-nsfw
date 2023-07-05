@@ -1,5 +1,5 @@
-# NSFW-Roop 0.1.0 for StableDiffusion
-### NSFW (uncensored) version (use it on your own responsibility) of [original sd-webui-roop](https://github.com/s0md3v/sd-webui-roop) with a lot of improvements
+# NSFW-Roop 0.1.0 for StableDiffusion (NO ERROR INSTALLATION ISSUES !)
+### NSFW (uncensored) version (use it on your own responsibility) of [original sd-webui-roop-NSFW](https://github.com/Gourieff/sd-webui-roop-nsfw) FIXED INSTALLATION ISSUES
 
 This is an extension for StableDiffusion's [AUTOMATIC1111 web-ui](https://github.com/AUTOMATIC1111/stable-diffusion-webui/) that allows face-replacement in images. It is based on [Roop-GE](https://github.com/Gourieff/Roop-GE).
 
@@ -52,30 +52,6 @@ You can choose to activate the swap on the source image or on the generated imag
 
 Inpainting should work but only the masked part will be swapped.
 
-## Troubleshooting
-
-**I. "You should at least have one model in models directory"**
-
-Please, check the path where "inswapper_128.onnx" model is stored. It must be inside the folder `stable-diffusion-webui\models\roop`. Move the model there if it's stored in a different directory.
-
-**II. Any problems with installing Insightface or other dependencies**
-
-(for Windows Users) If you have VS C++ Build Tools or MS VS 2022 installed but still have a problem, then try the next step:
-1. Close your sd-webui and start it again
-(for Any OS Users) If the problem still there, then do the following:
-1. Go to `stable-diffusion-webui\venv\Lib\site-packages` folder (or it can be `stable-diffusion-webui/venv/lib/python3.10/site-packages`)
-2. If you see any folders the with names start from `~` (ex. "~rotobuf") - delete them
-3. Go to `stable-diffusion-webui\venv\Scripts` or `stable-diffusion-webui/venv/bin`
-4. Run Terminal or Console (cmd) for that folder and type `activate`
-5. Update your pip at first: `pip install -U pip`
-6. Then one-by-one:
-   - `pip install insightface==0.7.3`
-   - `pip install onnxruntime==1.15.0`
-   - `pip install opencv-python==4.7.0.72`
-   - `pip install diffusers==0.17.1`
-   - `pip install tqdm`
-7. Type `deacticate`, you can close your Terminal or Console and start your sd-webui, Roop should start OK - if not, welcome to Issues section.
-
-## Updating
-
-A good and quick way to check for Extensions updates: https://github.com/Gourieff/sd-webui-extensions-updater
+### CREDIT
+ORIGINAL AUTHOR : https://github.com/s0md3v/sd-webui-roop
+MODIFIER (NSFW UNCENSORED) : https://github.com/Gourieff/sd-webui-roop-nsfw
