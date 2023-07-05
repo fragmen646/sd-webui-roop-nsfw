@@ -24,28 +24,31 @@ if not os.path.exists(models_dir):
 if not os.path.exists(model_path):
     download(model_url, model_path)
 
+print("Checking roop requirements")
 with open(req_file) as file:
     for package in file:
         try:
+            python = sys.executable
             package = package.strip()
 
-            if "==" in package:
-                package_name, package_version = package.split('==')
+            if not launch.is_installed(package):
+                print(f"Install {package}")
+                launch.run_pip(
+                    f"install {package}", f"sd-webui-roop requirement: {package}"
+                )
+            elif "==" in package:
+                package_name, package_version = package.split("==")
                 installed_version = pkg_resources.get_distribution(package_name).version
                 if installed_version != package_version:
                     print(
-                        f"Running install of {package}, {installed_version} vs {package_version}"
+                        f"Install {package}, {installed_version} vs {package_version}"
                     )
                     launch.run_pip(
-                        f"install {package}", 
-                        f"sd-webui-roop-nsfw requirement: changing {package_name} version from {installed_version} to {package_version}"
+                        f"install {package}",
+                        f"sd-webui-roop requirement: changing {package_name} version from {installed_version} to {package_version}",
                     )
-            elif not launch.is_installed(package):
-                launch.run_pip(f"install {package}", f"sd-webui-roop-nsfw requirement: {package}")
 
         except Exception as e:
             print(e)
-            print(f"Warning: Failed to install {package}, nsfw-roop will not work.")
+            print(f"Warning: Failed to install {package}, roop will not work.")
             raise e
-        # finally:
-        #     print(f'{package} - ok')
