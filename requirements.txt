@@ -1,4 +1,4 @@
-insightface==0.7.3
+https://github.com/Em1tSan/sd-webui-roop-unlock/raw/main/insightface-0.7.3-cp310-cp310-win_amd64.whl
 onnx==1.14.0
 onnxruntime==1.15.0
 opencv-python==4.7.0.72
